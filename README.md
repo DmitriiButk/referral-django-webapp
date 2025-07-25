@@ -22,17 +22,6 @@
 - Список приглашенных пользователей
 - Форма для активации чужих инвайт-кодов
 
-### Структура проекта
-
-Основные URL-маршруты:
-
-- / - главная страница
-- /login/ - страница входа
-- /verify/ - страница верификации кода
-- /dashboard/ - личный кабинет пользователя
-- /activate-invite/ - эндпоинт для активации инвайт-кода
-- /logout/ - выход из системы
-
 ### Процесс работы с системой:
 
 - Пользователь вводит номер телефона на странице входа
@@ -63,13 +52,13 @@
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://web.postman.co/workspace/My-Workspace~f5e1f7d4-f2af-48eb-8faf-e1bbbb8bf2c2/collection/28460613-192fa370-c064-41ba-83be-385628a91691?action=share&source=copy-link&creator=28460613)
 
-API маршруты доступны по базовому адресу http://localhost:8000/api
+API маршруты:
 
-- **/api/auth/phone/** - отправка кода верификации
-- **/api/auth/verify/** - проверка кода верификации
-- **/api/profile/** - информация о профиле пользователя
-- **/api/invite/activate/** - активация инвайт-кода
-- **/api/token/refresh/** - обновление JWT токена
+- **http://localhost:8000/api/auth/phone/** - отправка кода верификации
+- **http://localhost:8000/api/auth/verify/** - проверка кода верификации
+- **http://localhost:8000/api/profile/** - информация о профиле пользователя
+- **http://localhost:8000/api/invite/activate/** - активация инвайт-кода
+- **http://localhost:8000/api/token/refresh/** - обновление JWT токена
 
 # Клонирование репозитория
 
