@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="jumbotron p-5 bg-light rounded">
+            <h1 class="display-4">Добро пожаловать!</h1>
+            <p class="lead">Система авторизации по номеру телефона с реферальной программой</p>
+            <hr class="my-4">
+            <p>Зарегистрируйтесь, получите свой инвайт-код и приглашайте друзей!</p>
+            <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Начать</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

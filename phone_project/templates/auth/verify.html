@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Верификация{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Введите код подтверждения</h4>
+            </div>
+            <div class="card-body">
+                {% if debug_code %}
+                <div class="alert alert-info">
+                    <strong>Код для отладки:</strong> {{ debug_code }}
+                </div>
+                {% endif %}
+
+                {% if error %}
+                <div class="alert alert-danger">
+                    {{ error }}
+                </div>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="code" class="form-label">Код подтверждения</label>
+                        <input type="text" class="form-control" id="code" name="code"
+                               placeholder="Введите 4 цифры" maxlength="4" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Подтвердить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

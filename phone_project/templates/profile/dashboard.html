@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Информация о пользователе</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Номер телефона:</strong> {{ user.phone_number }}</p>
+                <p><strong>Ваш инвайт-код:</strong>
+                    <span class="badge bg-success">{{ user.invite_code }}</span>
+                </p>
+                <p><strong>Активированный инвайт-код:</strong>
+                    {% if user.activated_invite_code %}
+                    <span class="badge bg-info">{{ user.activated_invite_code }}</span>
+                    {% else %}
+                    <span class="text-muted">Не активирован</span>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+
+        {% if not user.activated_invite_code %}
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Активировать инвайт-код</h5>
+            </div>
+            <div class="card-body">
+                {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+                {% endif %}
+
+                <form method="post" action="{% url 'activate_invite' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="invite_code" class="form-label">Инвайт-код</label>
+                        <input type="text" class="form-control" id="invite_code" name="invite_code"
+                               placeholder="Введите код приглашения" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Активировать</button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Приглашенные пользователи</h5>
+            </div>
+            <div class="card-body">
+                {% if invited_users %}
+                <ul class="list-group">
+                    {% for invited_user in invited_users %}
+                    <li class="list-group-item">{{ invited_user.phone_number }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="text-muted">У вас пока нет приглашенных пользователей</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
