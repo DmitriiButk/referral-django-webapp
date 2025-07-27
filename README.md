@@ -60,7 +60,9 @@ API маршруты:
 - **http://localhost:8000/api/invite/activate/** - активация инвайт-кода
 - **http://localhost:8000/api/token/refresh/** - обновление JWT токена
 
-# Клонирование репозитория
+## Запуск приложения
+
+### Клонирование репозитория
 
 ```bash
 git clone https://github.com/DmitriiButk/for-hammer.git
@@ -82,13 +84,13 @@ DB_PORT=5432
 SECRET_KEY=your_secret_key
 ```
 
-## Запуск приложения
+## Запуск:
 
 ```bash
 docker-compose up -d --build
 ```
 
-## Остановка приложения:
+## Остановка:
 
 ```bash
 docker-compose down
