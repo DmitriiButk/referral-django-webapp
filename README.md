@@ -65,7 +65,7 @@ API маршруты:
 ### Клонирование репозитория
 
 ```bash
-git clone https://github.com/DmitriiButk/for-hammer.git
+git clone https://github.com/DmitriiButk/referral-django-webapp.git
 cd phone_project
 ```
 
